@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styles from './Market.module.scss'
+import moment from 'moment'
 
 // icons
 import { MdOutlineTimeline } from 'react-icons/md'
@@ -31,7 +32,7 @@ ChartJS.register(
 )
 
 // chart component for dynamic data
-const LineChart = () => {
+const LineChart = ({ mydata }) => {
     // const ctx = document.getElementById('canvas').getContext('2d')
     // const gradientBg = ctx.createLinearGradient(0, 0, 0, 400)
     // gradientBg.addColorStop(0, 'gray')
@@ -55,9 +56,7 @@ const LineChart = () => {
         ],
         datasets: [
             {
-                data: [
-                    120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
-                ],
+                data: mydata,
                 label: 'Lorem ipsum',
                 borderColor: 'gray',
                 borderWith: 0,
@@ -129,49 +128,78 @@ const LineChart = () => {
 }
 
 function Market() {
+    // current time
+    const [time, setTime] = useState(moment().format('MMM DD HH:mm A Z'))
     const stockMarket = useMemo(
         () => [
             {
                 name: 'NASDAQ',
-                price: '1,000,000',
+                price: '149,33',
                 change: -0.85,
                 lastYear: [
-                    120, 121, 120, 122, 121, 123, 120, 123, 122, 123, 122, 123,
+                    149, 151, 148, 150, 149, 150, 149, 150, 149, 150, 149, 150,
                 ],
+                low: 149,
+                high: 150,
+                open: 149,
+                marketCap: '100B',
+                dividend: '0.5%',
+                peratio: '15.4',
             },
             {
                 name: 'AAPL',
-                price: '1,000,000',
+                price: '140,54',
                 change: 0.51,
                 lastYear: [
-                    120, 121, 120, 122, 121, 120, 122, 123, 122, 123, 122, 123,
+                    140, 142, 141, 143, 142, 143, 142, 143, 142, 143, 142, 143,
                 ],
+                low: 139,
+                high: 142,
+                open: 140,
+                marketCap: '200B',
+                dividend: '0.15%',
+                peratio: '10.4',
             },
             {
                 name: 'DOW J',
-                price: '1,000,000',
+                price: '32.531,80',
                 change: -0.34,
                 lastYear: [
-                    120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
+                    32.531, 31.531, 31.531, 32.531, 31.531, 32.531, 31.531,
+                    32.531, 31.531, 32.531, 31.531, 32.531,
                 ],
+                low: 32.531,
+                high: 32.531,
+                open: 32.531,
+                marketCap: '300B',
+                dividend: '0.15%',
+                peratio: '10.4',
             },
             {
                 name: 'GOOG',
-                price: '1,000,000',
+                price: '2.149,97',
                 change: 0.7,
                 lastYear: [
                     120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
                 ],
+                low: 120,
+                high: 123,
+                open: 120,
+                marketCap: '400B',
+                dividend: '0.15%',
+                peratio: '10.4',
             },
         ],
         []
     )
+
+    const [chartIndex, setChartIndex] = useState(0)
     return (
         <div className={styles.container}>
             <div className={styles.container__navigation}>
                 <ul>
                     {stockMarket.map((item, index) => (
-                        <li key={index}>
+                        <li key={index} onClick={() => setChartIndex(index)}>
                             <span>
                                 <h2>{item.name}</h2>
                                 <h4>{item.price}</h4>
@@ -191,29 +219,32 @@ function Market() {
             <div className={styles.container__content}>
                 <div className={styles.container__content__data}>
                     <div className={styles.container__content__data__title}>
-                        <h3>NASDAQ: AAPL</h3>
-                        <h1>127.33</h1>
-                        <p>Oct 12 2:16 PM EDT</p>
+                        <h3>{stockMarket[chartIndex].name}</h3>
+                        <h1>{stockMarket[chartIndex].price}$</h1>
+                        <p>{time}</p>
                     </div>
                     <div className={styles.container__content__data__details}>
                         <p>
-                            Low <span>126.88</span>
+                            Low <span>{stockMarket[chartIndex].low}</span>
                         </p>
                         <p>
-                            Market cap <span>735.34B</span>
+                            Market cap
+                            <span>{stockMarket[chartIndex].marketCap}</span>
                         </p>
 
                         <p>
-                            High <span>127.61</span>
+                            High <span>{stockMarket[chartIndex].high}</span>
                         </p>
                         <p>
-                            Divident yield <span>1.63%</span>
+                            Divident yield
+                            <span>{stockMarket[chartIndex].dividend}</span>
                         </p>
                         <p>
-                            Open <span>127.48</span>
+                            Open <span>{stockMarket[chartIndex].open}</span>
                         </p>
                         <p>
-                            P/E ratio (ttm) <span>15.73</span>
+                            P/E ratio (ttm)
+                            <span>{stockMarket[chartIndex].peratio}</span>
                         </p>
                     </div>
                     <button>
@@ -221,7 +252,7 @@ function Market() {
                     </button>
                 </div>
                 <div className={styles.container__content__chart}>
-                    <LineChart />
+                    <LineChart mydata={stockMarket[chartIndex].lastYear} />
                 </div>
             </div>
         </div>
