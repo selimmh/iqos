@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo } from 'react'
 import styles from './Market.module.scss'
 
+import { MdOutlineTimeline } from 'react-icons/md'
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -78,6 +80,7 @@ const LineChart = () => {
                 position: 'right',
                 ticks: {
                     color: 'red',
+                    display: false,
                 },
                 grid: {
                     display: false,
@@ -120,12 +123,6 @@ function Market() {
                 name: 'NASDAQ',
                 price: '1,000,000',
                 change: -0.85,
-                low: '100',
-                high: '100',
-                open: '100',
-                marketcap: '100',
-                dividentyield: '100',
-                peratio: '100',
             },
             {
                 name: 'AAPL',
@@ -155,8 +152,14 @@ function Market() {
                                 <h2>{item.name}</h2>
                                 <h4>{item.price}</h4>
                             </span>
-                            <h1>{item.change}</h1>
-                            <button>details</button>
+                            <h1
+                                className={
+                                    item.change <= 0 ? styles.red : styles.green
+                                }
+                            >
+                                {item.change}%
+                            </h1>
+                            <button>Details</button>
                         </li>
                     ))}
                 </ul>
@@ -164,8 +167,8 @@ function Market() {
             <div className={styles.container__content}>
                 <div className={styles.container__content__data}>
                     <div className={styles.container__content__data__title}>
-                        <h5>NASDAQ: AAPL</h5>
-                        <h6>127.33</h6>
+                        <h3>NASDAQ: AAPL</h3>
+                        <h1>127.33</h1>
                         <p>Oct 12 2:16 PM EDT</p>
                     </div>
                     <div className={styles.container__content__data__details}>
@@ -189,7 +192,9 @@ function Market() {
                             P/E ratio (ttm) <span>15.73</span>
                         </p>
                     </div>
-                    <button>1 YEAR</button>
+                    <button>
+                        <MdOutlineTimeline />1 YEAR
+                    </button>
                 </div>
                 <div className={styles.container__content__chart}>
                     <LineChart />

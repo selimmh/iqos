@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import styles from './Appbar.module.scss'
-
 // component
 import Drawer from '../Drawer/Drawer'
 
@@ -18,11 +17,12 @@ function Appbar() {
     }
     return (
         <nav className={styles.container}>
-            <div className={styles.container__hamburger}>
-                <RiMenu2Fill onClick={toggleMenu} />
+            <div className={styles.container__left}>
+                <div className={styles.container__left__hamburger}>
+                    <RiMenu2Fill onClick={toggleMenu} />
+                </div>
+                <div className={styles.container__left__widgets}>widgets</div>
             </div>
-
-            <div className={styles.container__widgets}>widgets</div>
 
             <div className={styles.container__logo}>
                 <p>N</p>

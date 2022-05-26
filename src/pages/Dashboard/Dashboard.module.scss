@@ -13,6 +13,16 @@
         display: none;
         @include phone {
             display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1875rem;
+            font-weight: bolder;
+            background-color: $orange;
+            color: white;
+            box-shadow: 11px 11px 62px -22px rgba(0, 0, 0, 0.18) inset;
+            -webkit-box-shadow: 11px 11px 62px -22px rgba(0, 0, 0, 0.18) inset;
+            -moz-box-shadow: 11px 11px 62px -22px rgba(0, 0, 0, 0.18) inset;
         }
     }
 

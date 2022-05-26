@@ -5,6 +5,7 @@ import moment from 'moment'
 import dayjs from 'dayjs'
 
 import { RiSunCloudyLine } from 'react-icons/ri'
+import { BsCloudHail } from 'react-icons/bs'
 
 function Weather() {
     const [weather, setWeather] = useState({})
@@ -57,7 +58,7 @@ function Weather() {
                     <div className={styles.container__details}>
                         <div className={styles.container__details__city}>
                             <span>
-                                <RiSunCloudyLine />
+                                <BsCloudHail />
                             </span>
                             <h2>Mostly Cloudy</h2>
                             <h3>New York</h3>
@@ -70,7 +71,10 @@ function Weather() {
                             </ul>
                             <h1>
                                 {weather?.current_weather?.temperature &&
-                                    weather?.current_weather?.temperature + '°'}
+                                    Math.floor(
+                                        weather?.current_weather?.temperature
+                                    )}
+                                &#176;
                             </h1>
                         </div>
                     </div>
@@ -78,8 +82,12 @@ function Weather() {
                         <ul>
                             {finalArray.map((item, index) => (
                                 <li key={index}>
-                                    <h6>{item.temp}</h6>
-                                    <p>{moment(item.time).format('h a')}</p>
+                                    <h6>{item.temp}&#176;</h6>
+                                    <p>
+                                        {moment(item.time)
+                                            .format('h a')
+                                            .toUpperCase()}
+                                    </p>
                                 </li>
                             ))}
                         </ul>
