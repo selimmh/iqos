@@ -1,6 +1,6 @@
 @import "./variables.scss";
 
-*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+*:where(:not(iframe, canvas, img, svg, video, input):not(svg *, symbol *)) {
   all: unset;
   display: revert;
 }
@@ -57,4 +57,8 @@ meter {
 
 :where([draggable="true"]) {
   -webkit-user-drag: element;
+}
+
+input.checkbox {
+  display: inline-block;
 }

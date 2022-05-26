@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Appbar.module.scss";
+
+// component
+import Drawer from "../Drawer/Drawer";
 
 // icons
 import { RiMenu2Fill } from "react-icons/ri";
@@ -9,10 +12,15 @@ import { BsBookmarkDash } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 
 function Appbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  console.log(isOpen);
   return (
     <nav className={styles.container}>
       <div className={styles.container__hamburger}>
-        <RiMenu2Fill />
+        <RiMenu2Fill onClick={toggleMenu} />
       </div>
 
       <div className={styles.container__widgets}>widgets</div>
@@ -36,6 +44,7 @@ function Appbar() {
           </li>
         </ul>
       </div>
+      {isOpen && <Drawer />}
     </nav>
   );
 }

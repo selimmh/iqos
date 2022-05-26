@@ -1,0 +1,49 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+
+  &__widgets {
+    width: 100%;
+    height: 10%;
+    display: none;
+    @include phone {
+      display: inline-block;
+    }
+  }
+
+  &__banner {
+    width: 50%;
+    height: 50%;
+    outline: 1px solid black;
+
+    @include tablet {
+      display: none;
+    }
+  }
+  &__weather {
+    width: 50%;
+    height: 50%;
+    outline: 1px solid black;
+
+    @include tablet {
+      width: 100%;
+      height: 50%;
+    }
+    @include phone {
+      height: 45%;
+    }
+  }
+  &__market {
+    width: 100%;
+    height: 50%;
+    outline: 1px solid black;
+    @include phone {
+      height: 45%;
+    }
+  }
+}
