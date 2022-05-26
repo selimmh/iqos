@@ -43,7 +43,7 @@ function Weather() {
             <li>Tomorrow</li>
             <li>Week</li>
           </ul>
-          <h1></h1>
+          <h1>{}</h1>
         </div>
       </div>
       <div>
