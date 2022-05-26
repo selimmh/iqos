@@ -29,7 +29,7 @@ ChartJS.register(
 )
 
 const LineChart = () => {
-    // const ctx = document.getElementById('canvas')?.getContext('2d')
+    // const ctx = document.getElementById('canvas').getContext('2d')
     // const gradientBg = ctx.createLinearGradient(0, 0, 0, 400)
     // gradientBg.addColorStop(0, 'gray')
     // gradientBg.addColorStop(0.5, 'white')
@@ -61,6 +61,15 @@ const LineChart = () => {
                 fill: true,
                 backgroundColor: 'rgba(0,0,0,0.05)',
                 lineTension: 0.6,
+                pointRadius: 7,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'red',
+                pointHoverBorderColor: 'red',
+                pointHoverBorderWidth: 2,
+                pointHitRadius: 10,
+                pointBackgroundColor: 'red',
+                pointBorderColor: 'red',
+                pointBorderWidth: 2,
             },
         ],
     }
@@ -104,7 +113,7 @@ const LineChart = () => {
         },
         elements: {
             point: {
-                radius: 0,
+                radius: 5,
             },
         },
     }
@@ -123,21 +132,33 @@ function Market() {
                 name: 'NASDAQ',
                 price: '1,000,000',
                 change: -0.85,
+                lastYear: [
+                    120, 121, 120, 122, 121, 123, 120, 123, 122, 123, 122, 123,
+                ],
             },
             {
                 name: 'AAPL',
                 price: '1,000,000',
                 change: 0.51,
+                lastYear: [
+                    120, 121, 120, 122, 121, 120, 122, 123, 122, 123, 122, 123,
+                ],
             },
             {
                 name: 'DOW J',
                 price: '1,000,000',
                 change: -0.34,
+                lastYear: [
+                    120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
+                ],
             },
             {
                 name: 'GOOG',
                 price: '1,000,000',
                 change: 0.7,
+                lastYear: [
+                    120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
+                ],
             },
         ],
         []
@@ -147,7 +168,7 @@ function Market() {
             <div className={styles.container__navigation}>
                 <ul>
                     {stockMarket.map((item, index) => (
-                        <li>
+                        <li key={index}>
                             <span>
                                 <h2>{item.name}</h2>
                                 <h4>{item.price}</h4>

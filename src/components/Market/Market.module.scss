@@ -46,8 +46,14 @@
                 cursor: pointer;
                 padding: 1rem;
                 border-bottom: 2px solid $gray;
+                transition: 0.1s ease-in;
                 &:hover {
                     background-color: $gray;
+                }
+
+                &:active {
+                    background-color: gray;
+                    opacity: 60%;
                 }
 
                 @include tablet {
