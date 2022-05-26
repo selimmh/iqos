@@ -1,49 +1,46 @@
-@import "../../styles/variables.scss";
-@import "../../styles/mixins.scss";
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-
-  &__widgets {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 10%;
-    display: none;
-    @include phone {
-      display: inline-block;
-    }
-  }
+    height: 100%;
 
-  &__banner {
-    width: 50%;
-    height: 50%;
-    outline: 1px solid black;
+    &__widgets {
+        width: 100%;
+        height: 10%;
+        display: none;
+        @include phone {
+            display: inline-block;
+        }
+    }
 
-    @include tablet {
-      display: none;
-    }
-  }
-  &__weather {
-    width: 50%;
-    height: 50%;
-    outline: 1px solid black;
+    &__banner {
+        width: 50%;
+        height: 50%;
 
-    @include tablet {
-      width: 100%;
-      height: 50%;
+        @include tablet {
+            display: none;
+        }
     }
-    @include phone {
-      height: 45%;
+    &__weather {
+        width: 50%;
+        height: 50%;
+
+        @include tablet {
+            width: 100%;
+            height: 50%;
+        }
+        @include phone {
+            height: 45%;
+        }
     }
-  }
-  &__market {
-    width: 100%;
-    height: 50%;
-    outline: 1px solid black;
-    @include phone {
-      height: 45%;
+    &__market {
+        width: 100%;
+        height: 50%;
+        @include phone {
+            height: 45%;
+        }
     }
-  }
 }

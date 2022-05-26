@@ -1,1 +1,246 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    @include tablet {
+        flex-direction: column;
+    }
+
+    &__navigation {
+        width: 20%;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        > ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            @include tablet {
+                flex-direction: row;
+            }
+
+            @include phone {
+                flex-wrap: wrap;
+            }
+
+            > li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                padding: 1rem;
+                &:hover {
+                    background-color: gray;
+                }
+
+                @include tablet {
+                    flex-direction: column;
+                }
+                @include phone {
+                    width: 50%;
+                    padding: 0.5rem;
+                    height: 140%;
+                }
+
+                > span {
+                    h2 {
+                        font-size: 1.8rem;
+                        font-weight: 900;
+                    }
+                    h4 {
+                        font-size: 1rem;
+                        font-weight: 900;
+                    }
+                }
+                h1 {
+                    font-size: 2rem;
+                    font-weight: 900;
+                }
+
+                button {
+                    display: none;
+                }
+
+                @include phone {
+                    button {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        @include phone {
+            display: none;
+        }
+        &__data {
+            display: flex;
+            width: 100%;
+            height: 40%;
+            align-items: center;
+            justify-content: space-between;
+
+            &__title {
+                h5 {
+                    font-weight: 900;
+                    font-size: 1.5rem;
+                    opacity: 0.5;
+                }
+
+                h6 {
+                    font-size: 4rem;
+                }
+
+                p {
+                    font-weight: 900;
+                    opacity: 0.5;
+                    font-size: 0.75rem;
+                }
+            }
+
+            &__details {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-gap: 1rem;
+
+                p {
+                    font-weight: 900;
+                    color: #828282;
+                    font-size: 0.75rem;
+
+                    span {
+                        color: black;
+                        margin-left: 1rem;
+                    }
+                }
+            }
+
+            > button {
+                border: 1px solid black;
+                border-radius: 9999px;
+                padding: 0.5rem 1rem;
+                font-weight: 900;
+                font-size: 0.75rem;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    background-color: $green;
+                }
+            }
+        }
+        &__chart {
+            display: flex;
+            width: 100%;
+            height: 60%;
+            align-items: center;
+            justify-content: center;
+
+            > div {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.chart {
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+
+    > :first-child {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        padding: 2rem;
+
+        > :first-child {
+            h5 {
+                font-weight: 900;
+                font-size: 1.5rem;
+                opacity: 0.5;
+            }
+
+            h6 {
+                font-size: 4rem;
+            }
+
+            p {
+                font-weight: 900;
+                opacity: 0.5;
+                font-size: 0.75rem;
+            }
+        }
+
+        > :nth-child(2) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 1rem;
+
+            p {
+                font-weight: 900;
+                color: #828282;
+                font-size: 0.75rem;
+
+                span {
+                    color: black;
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+        > button {
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            font-weight: 900;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: $green;
+            }
+        }
+    }
+
+    > :last-child {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        * {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+}

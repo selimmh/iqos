@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Weather.module.scss'
 import axios from 'axios'
 import moment from 'moment'
@@ -7,7 +7,7 @@ import dayjs from 'dayjs'
 import { RiSunCloudyLine } from 'react-icons/ri'
 
 function Weather() {
-    const [weather, setWeather] = React.useState({})
+    const [weather, setWeather] = useState({})
 
     // api
     const getWeather = async () => {

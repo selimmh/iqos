@@ -1,8 +1,202 @@
-import React from "react";
-import styles from "./Market.module.scss";
+import React, { useEffect, useMemo } from 'react'
+import styles from './Market.module.scss'
 
-function Market() {
-  return <div className={styles.container}>Market</div>;
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip as TT,
+    Legend,
+    Filler,
+} from 'chart.js'
+
+import { Line } from 'react-chartjs-2'
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    TT,
+    Legend,
+    Filler
+)
+
+const LineChart = () => {
+    // const ctx = document.getElementById('canvas')?.getContext('2d')
+    // const gradientBg = ctx.createLinearGradient(0, 0, 0, 400)
+    // gradientBg.addColorStop(0, 'gray')
+    // gradientBg.addColorStop(0.5, 'white')
+    // gradientBg.addColorStop(1, 'black')
+
+    const data = {
+        labels: [
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+            'Jan',
+            'Feb',
+            'Mar',
+        ],
+        datasets: [
+            {
+                data: [
+                    120, 121, 120, 122, 121, 123, 122, 123, 122, 123, 122, 123,
+                ],
+                label: 'Lorem ipsum',
+                borderColor: 'gray',
+                borderWith: 0,
+                fill: true,
+                backgroundColor: 'rgba(0,0,0,0.05)',
+                lineTension: 0.6,
+            },
+        ],
+    }
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRation: 2,
+        scales: {
+            x: {
+                position: 'bottom',
+                grid: {
+                    display: false,
+                },
+            },
+            y: {
+                position: 'right',
+                ticks: {
+                    color: 'red',
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+                text: 'Lorem',
+                align: 'start',
+                position: 'top',
+                font: {
+                    size: 32,
+                    weight: 'bold',
+                },
+            },
+        },
+        elements: {
+            point: {
+                radius: 0,
+            },
+        },
+    }
+
+    return (
+        <div className={styles.lineChart}>
+            <Line id='canvas' data={data} options={options} />
+        </div>
+    )
 }
 
-export default Market;
+function Market() {
+    const stockMarket = useMemo(
+        () => [
+            {
+                name: 'NASDAQ',
+                price: '1,000,000',
+                change: -0.85,
+                low: '100',
+                high: '100',
+                open: '100',
+                marketcap: '100',
+                dividentyield: '100',
+                peratio: '100',
+            },
+            {
+                name: 'AAPL',
+                price: '1,000,000',
+                change: 0.51,
+            },
+            {
+                name: 'DOW J',
+                price: '1,000,000',
+                change: -0.34,
+            },
+            {
+                name: 'GOOG',
+                price: '1,000,000',
+                change: 0.7,
+            },
+        ],
+        []
+    )
+    return (
+        <div className={styles.container}>
+            <div className={styles.container__navigation}>
+                <ul>
+                    {stockMarket.map((item, index) => (
+                        <li>
+                            <span>
+                                <h2>{item.name}</h2>
+                                <h4>{item.price}</h4>
+                            </span>
+                            <h1>{item.change}</h1>
+                            <button>details</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className={styles.container__content}>
+                <div className={styles.container__content__data}>
+                    <div className={styles.container__content__data__title}>
+                        <h5>NASDAQ: AAPL</h5>
+                        <h6>127.33</h6>
+                        <p>Oct 12 2:16 PM EDT</p>
+                    </div>
+                    <div className={styles.container__content__data__details}>
+                        <p>
+                            Low <span>126.88</span>
+                        </p>
+                        <p>
+                            Market cap <span>735.34B</span>
+                        </p>
+
+                        <p>
+                            High <span>127.61</span>
+                        </p>
+                        <p>
+                            Divident yield <span>1.63%</span>
+                        </p>
+                        <p>
+                            Open <span>127.48</span>
+                        </p>
+                        <p>
+                            P/E ratio (ttm) <span>15.73</span>
+                        </p>
+                    </div>
+                    <button>1 YEAR</button>
+                </div>
+                <div className={styles.container__content__chart}>
+                    <LineChart />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Market
