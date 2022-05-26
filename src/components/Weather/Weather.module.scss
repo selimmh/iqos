@@ -1,62 +1,96 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .container {
-  width: 100%;
-  height: 100%;
-  background-color: $yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-
-  &__details {
     width: 100%;
+    height: 100%;
+    background-color: $yellow;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    padding: 2rem;
 
-    &__city {
-      > span {
-        font-size: 10rem;
-        color: white;
-      }
-      > h2 {
-        font-size: 1.5rem;
-        color: white;
-        font-weight: 900;
-      }
-
-      > h3 {
-        font-size: 1.2rem;
-        color: white;
-        opacity: 0.75;
-        font-weight: 900;
-      }
-    }
-
-    &__degree {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      > ul {
+    &__details {
+        width: 100%;
         display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
 
-        > li {
-          color: white;
-          margin-right: 1rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          font-size: 1rem;
+        &__city {
+            > span {
+                font-size: 10rem;
+                color: white;
+            }
+            > h2 {
+                font-size: 1.5rem;
+                color: white;
+                font-weight: 900;
+            }
+
+            > h3 {
+                font-size: 1.2rem;
+                color: white;
+                opacity: 0.75;
+                font-weight: 900;
+            }
         }
-      }
 
-      > h1 {
-        font-size: 10rem;
-        color: white;
-        font-weight: 900;
-      }
+        &__degree {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            > ul {
+                display: flex;
+
+                > li {
+                    color: white;
+                    margin-right: 1rem;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    font-size: 1rem;
+                }
+            }
+
+            > h1 {
+                font-size: 10rem;
+                color: white;
+                font-weight: 900;
+            }
+        }
     }
-  }
+
+    &__hourly {
+        width: 100%;
+        > ul {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            > li {
+                color: white;
+                font-weight: 900;
+                font-size: 0.85rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                > h6 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.nodata {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $yellow;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
