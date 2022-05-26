@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Banner.module.scss'
 
+// icons
 import { FiRadio } from 'react-icons/fi'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 

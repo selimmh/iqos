@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styles from './Drawer.module.scss'
 
+// icons
 import { FiDownloadCloud, FiUploadCloud } from 'react-icons/fi'
 import { AiOutlinePoweroff } from 'react-icons/ai'
 import { RiArrowRightSLine } from 'react-icons/ri'

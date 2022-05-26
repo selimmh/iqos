@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo } from 'react'
 import styles from './Market.module.scss'
 
+// icons
 import { MdOutlineTimeline } from 'react-icons/md'
 
+// chart
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -28,6 +30,7 @@ ChartJS.register(
     Filler
 )
 
+// chart component for dynamic data
 const LineChart = () => {
     // const ctx = document.getElementById('canvas').getContext('2d')
     // const gradientBg = ctx.createLinearGradient(0, 0, 0, 400)

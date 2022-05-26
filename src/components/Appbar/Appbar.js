@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import styles from './Appbar.module.scss'
-// component
 import Drawer from '../Drawer/Drawer'
 
 // icons

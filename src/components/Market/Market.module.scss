@@ -11,23 +11,23 @@
     }
 
     &__navigation {
-        width: 20%;
         box-shadow: 10px 1px 55px -30px rgba(0, 0, 0, 0.57);
         -webkit-box-shadow: 10px 1px 55px -30px rgba(0, 0, 0, 0.57);
         -moz-box-shadow: 10px 1px 55px -30px rgba(0, 0, 0, 0.57);
+        width: 20%;
 
         @include tablet {
-            width: 100%;
             box-shadow: none;
+            width: 100%;
         }
 
         > ul {
-            width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            height: 100%;
 
             @include tablet {
                 flex-direction: row;
@@ -41,47 +41,47 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                transition: 0.1s ease-in;
+                cursor: pointer;
+                border-bottom: 2px solid $gray;
+                padding: 1rem;
                 width: 100%;
                 height: 100%;
-                cursor: pointer;
-                padding: 1rem;
-                border-bottom: 2px solid $gray;
-                transition: 0.1s ease-in;
                 &:hover {
                     background-color: $gray;
                 }
 
                 &:active {
-                    background-color: gray;
                     opacity: 60%;
+                    background-color: gray;
                 }
 
                 @include tablet {
                     flex-direction: column;
-                    border-bottom: none;
                     border-right: 2px solid $gray;
+                    border-bottom: none;
                 }
                 @include phone {
-                    width: 50%;
-                    padding: 0 2rem;
-                    height: 140%;
-                    align-items: flex-start;
                     justify-content: space-around;
+                    align-items: flex-start;
+                    padding: 0 2rem;
+                    width: 50%;
+                    height: 140%;
                 }
 
                 > span {
                     h2 {
-                        font-size: 1.25rem;
                         font-weight: bolder;
+                        font-size: 1.25rem;
                     }
                     h4 {
-                        font-size: 1rem;
                         font-weight: 900;
+                        font-size: 1rem;
                     }
                 }
                 h1 {
-                    font-size: 1.875rem;
                     font-weight: 900;
+                    font-size: 1.875rem;
 
                     @include phone {
                         font-size: 3rem;
@@ -98,10 +98,10 @@
 
                 button {
                     display: none;
+                    cursor: pointer;
                     border: 1px solid gray;
                     border-radius: 9999px;
                     padding: 0.5rem 1rem;
-                    cursor: pointer;
                     color: $orange;
                     font-weight: bolder;
                 }
@@ -116,11 +116,11 @@
     }
 
     &__content {
-        width: 80%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
+        width: 80%;
+        height: 100%;
 
         @include tablet {
             width: 100%;
@@ -131,58 +131,58 @@
         }
         &__data {
             display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             width: 100%;
             height: 40%;
-            align-items: flex-start;
-            justify-content: space-between;
 
             &__title {
                 h3 {
+                    opacity: 0.5;
                     font-weight: 900;
                     font-size: 1.875rem;
-                    opacity: 0.5;
                 }
 
                 h1 {
-                    font-size: 5rem;
                     font-weight: bolder;
+                    font-size: 5rem;
                 }
 
                 p {
-                    font-weight: bolder;
                     opacity: 0.5;
+                    font-weight: bolder;
                     font-size: 0.6875rem;
                 }
             }
 
             &__details {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
                 grid-gap: 1rem;
+                display: grid;
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
 
                 p {
-                    font-weight: 900;
                     color: #828282;
+                    font-weight: 900;
                     font-size: 0.75rem;
 
                     span {
-                        color: black;
                         margin-left: 1rem;
+                        color: black;
                     }
                 }
             }
 
             > button {
+                display: flex;
+                align-items: center;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
                 border: 1px solid gray;
                 border-radius: 9999px;
                 padding: 0.5rem 1rem;
                 font-weight: 900;
                 font-size: 0.75rem;
-                cursor: pointer;
-                transition: all 0.2s ease-in-out;
-                display: flex;
-                align-items: center;
 
                 &:hover {
                     background-color: $gray;
@@ -195,10 +195,10 @@
         }
         &__chart {
             display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             height: 60%;
-            align-items: center;
-            justify-content: center;
 
             > div {
                 width: 100%;
@@ -209,22 +209,22 @@
 }
 
 .chart {
-    height: 100%;
-    width: 75%;
     display: flex;
     flex-direction: column;
+    width: 75%;
+    height: 100%;
 
     > :first-child {
         display: flex;
-        align-items: start;
         justify-content: space-between;
+        align-items: start;
         padding: 2rem;
 
         > :first-child {
             h5 {
+                opacity: 0.5;
                 font-weight: 900;
                 font-size: 1.5rem;
-                opacity: 0.5;
             }
 
             h6 {
@@ -232,37 +232,37 @@
             }
 
             p {
-                font-weight: 900;
                 opacity: 0.5;
+                font-weight: 900;
                 font-size: 0.75rem;
             }
         }
 
         > :nth-child(2) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
             grid-gap: 1rem;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             p {
-                font-weight: 900;
                 color: #828282;
+                font-weight: 900;
                 font-size: 0.75rem;
 
                 span {
-                    color: black;
                     margin-left: 1rem;
+                    color: black;
                 }
             }
         }
 
         > button {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
             border-radius: 9999px;
             padding: 0.5rem 1rem;
             font-weight: 900;
             font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
 
             &:hover {
                 background-color: $green;
@@ -271,11 +271,11 @@
     }
 
     > :last-child {
-        height: 100%;
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
 
         * {
             width: 100%;

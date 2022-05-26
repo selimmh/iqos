@@ -3,43 +3,44 @@
 
 .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    height: 4rem;
+    align-items: center;
     background-color: $orange;
     padding: 0 1rem;
+    width: 100%;
+    height: 4rem;
 
     &__left {
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
         &__hamburger {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
+            transition: 0.2s ease-in-out;
             cursor: pointer;
+            margin-right: 2.5rem;
             color: white;
             font-size: 2rem;
-            margin-right: 2.5rem;
 
             &:hover,
             &:active,
             &:focus {
-                color: black;
                 opacity: 50%;
+                color: black;
             }
-
-            transition: 0.2s ease-in-out;
         }
 
         &__widgets {
-            font-size: 1rem;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
             color: white;
             font-weight: 900;
+            font-size: 1rem;
             text-transform: uppercase;
-            cursor: pointer;
 
             @include tablet {
                 display: none;
@@ -48,41 +49,39 @@
             &:hover,
             &:active,
             &:focus {
-                color: black;
                 opacity: 50%;
+                color: black;
             }
-
-            transition: 0.2s ease-in-out;
         }
     }
 
     &__logo {
         display: flex;
-        align-items: center;
         justify-content: center;
-        color: white;
-        font-size: 2rem;
-        font-weight: 900;
-        cursor: pointer;
+        align-items: center;
         transition: 0.2s ease-in-out;
+        cursor: pointer;
+        color: white;
+        font-weight: 900;
+        font-size: 2rem;
 
         &:hover,
         &:active,
         &:focus {
-            color: black;
             opacity: 50%;
+            color: black;
         }
     }
 
     &__actions {
         > ul {
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2rem;
+            align-items: center;
             gap: 2rem;
             cursor: pointer;
+            color: white;
+            font-size: 2rem;
 
             > li {
                 transition: 0.2s ease-in-out;
@@ -90,8 +89,8 @@
                 &:hover,
                 &:active,
                 &:focus {
-                    color: black;
                     opacity: 50%;
+                    color: black;
                 }
             }
 

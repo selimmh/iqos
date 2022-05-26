@@ -2,34 +2,34 @@
 @import '../../styles/mixins.scss';
 
 .container {
-    width: 100%;
-    height: 100%;
-    background-color: $yellow;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    background-color: $yellow;
     padding: 2rem;
+    width: 100%;
+    height: 100%;
 
     &__details {
-        width: 100%;
         display: flex;
-        align-items: flex-start;
         justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
 
         &__city {
             > span {
-                font-size: 10rem;
                 color: white;
+                font-size: 10rem;
 
                 @include phone {
                     font-size: 6rem;
                 }
             }
             > h2 {
-                font-size: 1.625rem;
                 color: white;
                 font-weight: 900;
+                font-size: 1.625rem;
 
                 @include tablet {
                     font-size: 1.625rem;
@@ -41,9 +41,9 @@
             }
 
             > h3 {
-                font-size: 1.25rem;
                 color: white;
                 font-weight: 900;
+                font-size: 1.25rem;
 
                 @include tablet {
                     font-size: 1.25rem;
@@ -56,39 +56,39 @@
 
         &__degree {
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             > ul {
                 display: flex;
 
                 & :first-child {
-                    color: white;
                     border-bottom: 2px solid white;
+                    color: white;
                 }
 
                 > li {
-                    color: white;
-                    margin-right: 1rem;
-                    font-weight: 900;
-                    text-transform: uppercase;
-                    font-size: 0.6875rem;
-                    color: $gray;
-                    cursor: pointer;
-                    padding: 0.25rem;
                     transition: 0.3s ease-in;
+                    cursor: pointer;
+                    margin-right: 1rem;
+                    padding: 0.25rem;
+                    color: white;
+                    color: $gray;
+                    font-weight: 900;
+                    font-size: 0.6875rem;
+                    text-transform: uppercase;
 
                     &:hover {
-                        color: white;
                         border-bottom: 2px solid white;
+                        color: white;
                     }
                 }
             }
 
             > h1 {
-                font-size: 10.625rem;
                 color: white;
                 font-weight: 900;
+                font-size: 10.625rem;
 
                 @include phone {
                     font-size: 6.625rem;
@@ -101,17 +101,17 @@
         width: 100%;
         > ul {
             display: flex;
-            width: 100%;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            width: 100%;
             > li {
-                color: white;
-                font-size: 0.6875rem;
-                font-weight: 900;
                 display: flex;
-                align-items: center;
-                justify-content: center;
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: 900;
+                font-size: 0.6875rem;
 
                 > h6 {
                     font-size: 1.25rem;
@@ -131,12 +131,12 @@
 }
 
 .nodata {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: $yellow;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background-color: $yellow;
     padding: 2rem;
+    width: 100%;
+    height: 100%;
 }
